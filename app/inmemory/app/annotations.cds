@@ -7,18 +7,24 @@ annotate makerspaceInventorySrv.Category with {
 };
 annotate makerspaceInventorySrv.Category with @UI.Identification: [{ Value: name }];
 annotate makerspaceInventorySrv.Category with {
+  internalID @title: 'Internal ID';
   name @title: 'Name';
+  description @title: 'Description';
   hardware @title: 'Hardware'
 };
 
 annotate makerspaceInventorySrv.Category with @UI.LineItem: [
+    { $Type: 'UI.DataField', Value: internalID },
     { $Type: 'UI.DataField', Value: name },
+    { $Type: 'UI.DataField', Value: description },
     { $Type: 'UI.DataField', Value: hardware }
 ];
 
 annotate makerspaceInventorySrv.Category with @UI.FieldGroup #Main: {
   $Type: 'UI.FieldGroupType', Data: [
+    { $Type: 'UI.DataField', Value: internalID },
     { $Type: 'UI.DataField', Value: name },
+    { $Type: 'UI.DataField', Value: description },
     { $Type: 'UI.DataField', Value: hardware }
   ]
 };
