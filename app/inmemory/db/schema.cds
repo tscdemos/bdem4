@@ -1,9 +1,16 @@
 namespace makerspaceInventory;
 
+entity Category {
+  key ID: UUID;
+  name: String(200);
+  hardware: Association to many Hardware on hardware.category = $self;
+}
+
 entity Hardware {
   key ID: UUID;
   type: String(200);
   quantity: Integer;
+  category: Association to Category;
 }
 
 entity Item {
